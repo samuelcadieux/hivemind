@@ -134,7 +134,7 @@ namespace Hivemind {
 				string status = node.lastStatus.ToString();
 
 				if (!textures.ContainsKey (status)) {
-					Texture2D tex = (Texture2D) EditorGUIUtility.Load ("Hivemind/Status/"+status+".png");
+					var tex = Resources.Load<Texture2D>("Status/"+status);
 					if (tex == null) {
 						Debug.LogWarning (status + ".png not found");
 						return;
@@ -161,8 +161,7 @@ namespace Hivemind {
 			if (node is Selector && ((Selector) node).rememberRunning) nodeName = "MemSelector";
 			
 			if (!textures.ContainsKey (nodeName)) {
-
-				Texture2D tex = (Texture2D) EditorGUIUtility.Load ("Hivemind/Nodes/"+nodeName+".png");
+				var tex = Resources.Load<Texture2D>("Nodes/"+nodeName);
 				if (tex == null) {
 					Debug.LogWarning (nodeName + ".png not found");
 					return;
